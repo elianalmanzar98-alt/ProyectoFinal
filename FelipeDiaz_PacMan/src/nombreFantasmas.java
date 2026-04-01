@@ -1,0 +1,3 @@
+enum nombreFantasmas {
+    RED, BLUE
+}

@@ -1,5 +1,26 @@
-public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class App extends Application {
+@Override
+    public void start(Stage stage) throws Exception {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistaInicio.fxml"));
+        Scene scene = new Scene(loader.load());
+        inicioJuegoController controller = loader.getController();
+
+        stage.setTitle("PacMan");
+        stage.setScene(scene);
+        stage.show();
+        
+    
     }
+        
+    public static void main(String[] args) throws Exception {
+        launch(args);
+    
 }
+    }
