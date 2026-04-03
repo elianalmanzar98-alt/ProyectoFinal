@@ -1,5 +1,5 @@
 
-    import java.net.URL;
+import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,33 +8,39 @@ import javafx.scene.control.Button;
 public class inicioJuegoController {
 
     @FXML
-    private ResourceBundle resources;
-
+    private ImageView Mapa1;
     @FXML
-    private URL location;
-
+    private ImageView Mapa2;
+    @FXML
+    private ImageView redFantasma;
     @FXML
     private Button btnMapa1;
-
     @FXML
     private Button btnMapa2;
-
     @FXML
-    void handleJugarMapa1(ActionEvent event) {
-
-    }
-
+    private ImageView blueFantasma;
     @FXML
-    void handleJugarMapa2(ActionEvent event) {
-
-    }
-
+    private ImageView logoPM;
     @FXML
-    void initialize() {
-        assert btnMapa1 != null : "fx:id=\"btnMapa1\" was not injected: check your FXML file 'vistaInicio.fxml'.";
-        assert btnMapa2 != null : "fx:id=\"btnMapa2\" was not injected: check your FXML file 'vistaInicio.fxml'.";
+    private ImageView punt2;
+    @FXML
+    private ImageView punt3;
+    @FXML
+    private ImageView punt4 ;
+    @FXML
+    private ImageView punt5;
+    @FXML
+    private ImageView punt6;
+    @FXML
+    private ImageView punt7;
+    private ImageView punt7;
+    
+    
 
-    }
+
+
+
+
 
 }
 

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FinJuegoController">
+   <children>
+      <Label alignment="CENTER" layoutX="184.0" layoutY="116.0" prefHeight="84.0" prefWidth="232.0" text="FINAL DEL JUEGO " textAlignment="CENTER" textFill="#fff200">
+         <font>
+            <Font name="Showcard Gothic" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="84.0" fitWidth="90.0" layoutX="-20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/pacman.gif" />
+         </image>
+         <effect>
+            <Reflection />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/Pac-Man-Logo.png" />
+         </image>
+         <effect>
+            <Lighting bumpInput="$null">
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="93.0" layoutX="435.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/BLUE.png" />
+         </image>
+         <effect>
+            <Reflection />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="84.0" layoutX="502.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/RED.png" />
+         </image>
+         <effect>
+            <Reflection />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="127.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="191.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="225.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="260.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="300.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="155.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="142.0" layoutY="212.0" mnemonicParsing="false" onAction="#jugarDnuevo" style="-fx-background-color: black;" text="Jugar de nuevo " textFill="#efff14">
+         <font>
+            <Font name="Showcard Gothic" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="343.0" layoutY="212.0" mnemonicParsing="false" onAction="#elegirMapa" style="-fx-background-color: black;" text="Elegir Mapa" textFill="#e2ff07">
+         <font>
+            <Font name="Showcard Gothic" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="334.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="365.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="70.0" layoutX="477.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/ojos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="500.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/cereza.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="142.0" layoutX="22.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/modoAsustado.png" />
+         </image>
+         <effect>
+            <Reflection />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="182.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="216.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="248.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="278.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="309.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="374.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="344.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagenes%20usadas/puntos.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
