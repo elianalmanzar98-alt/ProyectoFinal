@@ -1,4 +1,4 @@
-import java.lang.classfile.Label;
+import javafx.scene.control.Label;
 
 import javafx.application.Platform;
 import javafx.scene.Node;
@@ -63,7 +63,7 @@ public class Jugador {
             columna = nuevaColumna;
 
             if(!hayFantasmas){
-                Node n = obtenerNodoCelda(tablero, nuevaColumna, nuevaFila);
+                Node n = obtenerNodoCeldaNode(tablero, nuevaColumna, nuevaFila);
                 if(n != null && n.isVisible()){
                     if(mapa.getCelda(nuevaFila, nuevaColumna) == 0){
                         puntuacion+=10;
@@ -166,8 +166,8 @@ public class Jugador {
         public void setVidas( int vidas){
             this.vidas = vidas;
         }
-        public void setPuntajeLabel(Label puntajelabel){
-            this.puntajeLabel = puntajelabel;
+        public void setPuntajeLabel(Label labelPuntuacion){
+            this.puntajeLabel = puntajeLabel;
         }
         public boolean isAsustadoActivado(){
             return AsustadoActivado;

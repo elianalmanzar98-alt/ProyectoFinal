@@ -100,8 +100,8 @@ public class Fantasma {
 
     public void recuperarAsustado(nombreFantasmas n ){
         if( n == nombreFantasmas.RED)
-        fantasmaImag.setImage(new Image());
-        else fantasmaImag.setImage(new Image());
+        fantasmaImag.setImage(new Image("Imagenes usadas\\RED.png"));
+        else fantasmaImag.setImage(new Image("Imagenes usadas\\BLUE.png"));
 
         fantasmaImag.setVisible(true);
         this.estaAsustado = false;

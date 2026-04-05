@@ -10,7 +10,6 @@ public class App extends Application {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistaInicio.fxml"));
         Scene scene = new Scene(loader.load());
-        inicioJuegoController controller = loader.getController();
 
         stage.setTitle("PacMan");
         stage.setScene(scene);
