@@ -56,7 +56,7 @@ public class Jugador {
             rotarImagen(tecla);
             
 
-            boolean hayFantasmas = (fila == RED.getFila() && columna == RED.getColumna()) || (fila == BLUE.getColumna());
+            boolean hayFantasmas = (fila == RED.getFila() && columna == RED.getColumna()) || (fila ==  BLUE.getFila() && columna ==  BLUE.getColumna());
 
 
             fila = nuevaFila;
@@ -64,9 +64,9 @@ public class Jugador {
 
             if(!hayFantasmas){
                 Node n = obtenerNodoCeldaNode(tablero, nuevaColumna, nuevaFila);
-                if(n != null && n.isVisible()){
+                if(n != null &&  n != imagen && n.isVisible()){
                     if(mapa.getCelda(nuevaFila, nuevaColumna) == 0){
-                        puntuacion+=10;
+                        puntuacion +=10;
                         PuntosRecolectados ++;
                     }
                     else if(mapa.getCelda(nuevaFila, nuevaColumna) == 2){
@@ -79,14 +79,15 @@ public class Jugador {
 
                     }
                     n.setVisible(false);
+                    final double pts = puntuacion;
                     Platform.runLater(()->{
-                        puntajeLabel.setText(puntuacion + " ");
+                        puntajeLabel.setText( pts + " ");
                     });
 
                 }
 
             }
-            tablero.setRowIndex(imagen, fila);
+            tablero.setRowIndex(imagen , fila);
             tablero.setColumnIndex(imagen, columna);
 
         }

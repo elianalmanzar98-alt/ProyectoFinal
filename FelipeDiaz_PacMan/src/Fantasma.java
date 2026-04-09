@@ -55,8 +55,8 @@ public class Fantasma {
         if (mapa.getCelda(fila + 1, columna)!=1){
             if((fila + 1) != posicionInicial[0] || columna != posicionInicial[1]) posiblesMovimientos.add(new int[]{1,0});
         }
-        if (mapa.getCelda(fila - 1, columna - 1) !=1){
-            if (fila != posicionInicial[0] || (columna -1) != posicionInicial[1]) posiblesMovimientos.add(new int[]{0,1});
+        if (mapa.getCelda(fila , columna - 1) !=1 && mapa.getCelda(fila, columna -1) !=4){
+            posiblesMovimientos.add(new int[]{0, -1});
         }
 
         if(mapa.getCelda(fila - 1, columna) !=1){

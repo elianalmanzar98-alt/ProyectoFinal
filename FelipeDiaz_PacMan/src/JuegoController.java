@@ -24,7 +24,7 @@ import javafx.util.Duration;
 
 public class JuegoController {
     @FXML
-    private AnchorPane rooPane;
+    private AnchorPane rootPane;
     @FXML
     private GridPane tablero;     
     @FXML 
@@ -168,7 +168,7 @@ private void crearJugador(){
     jugador = new Jugador(filaInicio, colInicio, ivPacman);
     jugador.setMapa(mapa);
     jugador.setPuntajeLabel(labelPuntuacion);
-    tablero.add(ivPacman, filaInicio, colInicio);
+    tablero.add(ivPacman, colInicio, filaInicio);
 
 }
 
@@ -208,8 +208,8 @@ private void configurarTeclado(){
     //el q usare sera el rootPane q es ek queb recibe
 
     Platform.runLater(()->{
-        if (rooPane.getScene()!= null){
-            rooPane.getScene().setOnKeyPressed(event ->{
+        if (rootPane.getScene()!= null){
+            rootPane.getScene().setOnKeyPressed(event ->{
                 KeyCode tecla = event.getCode();
 
 
@@ -229,7 +229,7 @@ private void configurarTeclado(){
                 if(tecla == KeyCode.LEFT || tecla == KeyCode.A) ultimaTecla = KeyCode.LEFT;
                 if(tecla == KeyCode.RIGHT || tecla == KeyCode.D) ultimaTecla = KeyCode.RIGHT;
             });
-            rooPane.requestFocus();
+            rootPane.requestFocus();
         }
 
     });
@@ -431,7 +431,7 @@ private void irAfinJuego(){
             Scene scene = new Scene(root);
 
 
-            Stage stage = (Stage) rooPane.getScene().getWindow();
+            Stage stage = (Stage) rootPane.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         }catch(IOException e){
