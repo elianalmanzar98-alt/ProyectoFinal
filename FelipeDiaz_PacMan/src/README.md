@@ -23,7 +23,12 @@ los fantasmas tienen un movimiento automatizado con una logica de MAX_VALUE para
 Control: cuenta con controles de animaciones segun  la direccion  que tome y tambien la detencion de colisiones con laas paredes para que no las traspase.
 
 Una de la funciones que deje pendientes fue la parte de la cereza, y es que en el juego de PacMan mediente un intervalo aparece un fruta(mayormente una cereza) que te da puntos adicionales, pero no la pude agregar a la funcionalidades porque cada vez que intentaba colocarla en el tablero se deformaba la forma del tablero y esto hacia que el pacman traspasara las paredes.
+
 Otra funcionalidad que no pude implementar fue la de que al momento de que pacman colisionara con los fantasmas en el modoAsustado sumara puntos adicionales.
+
+la otra es que al momento de que pacman come un fantasma el fantasma deberia volver a la base en forma de ojos por el tablero pero esa funcionalidad no la pude implementar.
+
+
 
 
 3- Requisitos PREVIO:
@@ -66,6 +71,7 @@ Ciclo de Jueo: utilice los TimeLine y los KeyFrame de javafx para hacerle una me
 GridPane: el tablero o el mapa se genera de una forma dinamica en un GridPane esto ayuda a la colision de los nodos para las cordenadas especificas.
 
 7- AUTOR
+
 Nombre : Felipe Elian Diaz Almanzar
 
 Fecha de Entrega:  Lunes 13 de Abril del 2026

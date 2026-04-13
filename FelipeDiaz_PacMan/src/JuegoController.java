@@ -112,7 +112,6 @@ public class JuegoController {
         tablero.setMinWidth(tableroW);
         tablero.setMinHeight(rows * CELDA);
 
-        System.out.println("tablero " + cols + " cols x " + rows + " filas = "  + tableroW + "x" + (rows * CELDA) + "px");
     }
 
     
@@ -138,7 +137,7 @@ public class JuegoController {
             Stage stage = (Stage) rootPane.getScene().getWindow();
             stage.sizeToScene();
             stage.centerOnScreen();
-            System.out.println("Ventana " + stage.getWidth() + "x" + stage.getHeight());
+            
         });
     }
 
@@ -244,7 +243,7 @@ public class JuegoController {
         jugador.setMapa(mapa);
         jugador.setPuntajeLabel(labelPuntuacion);
         tablero.add(iv, ci, fi);
-        System.out.println(" en fila=" + fi + " col=" + ci);
+        
     }
 
     
@@ -264,7 +263,6 @@ public class JuegoController {
         tablero.add(ivRed, 12, filaSpawn);
 
         jugador.setFantasmas(fantasmaRed, fantasmaBlue);
-        System.out.println("en fila " + filaSpawn + " | blue :" + mapa.getCelda(filaSpawn, 11) + " | red : " + mapa.getCelda(filaSpawn, 12));
     
     }
 
