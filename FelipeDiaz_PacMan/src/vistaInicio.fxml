@@ -30,7 +30,7 @@
             <Image url="@Imagenes%20usadas/mapa%202.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnMapa1" layoutX="102.0" layoutY="290.0" mnemonicParsing="false" onAction="#iniciarMapa1" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: vlack;" styleClass="-fx-border-radius: 20" text="Jugar" textFill="#ffe500">
+      <Button fx:id="btnMapa1" layoutX="102.0" layoutY="290.0" mnemonicParsing="false" onAction="#iniciarMapa1" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: black;" styleClass="-fx-border-radius: 20" text="Jugar" textFill="#ffe500">
          <font>
             <Font name="Showcard Gothic" size="12.0" />
          </font></Button>

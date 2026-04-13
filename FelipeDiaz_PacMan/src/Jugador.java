@@ -5,6 +5,9 @@ import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Circle;
 
 public class Jugador {
 
@@ -21,6 +24,8 @@ public class Jugador {
     private Fantasma BLUE;
     private long milisAsustado;
 
+    private MediaPlayer sonidoPunto;
+
     public Jugador(int fila, int columna, ImageView imagen){
         this.fila = fila;
         this.columna = columna;
@@ -29,6 +34,33 @@ public class Jugador {
         vidas = 3;
         AsustadoActivado = false;
         PuntosRecolectados = 0;
+        cargarSonidoPuntos();
+    }
+
+    private void cargarSonidoPuntos(){
+        try{
+        
+            String ruta = getClass().getResource("/Imagenes usadas/wakawaka-pacman.mp3").toExternalForm();
+            Media media = new Media(ruta);
+            sonidoPunto = new MediaPlayer(media);
+            sonidoPunto.setVolume(0.8);
+        }catch(Exception e){
+            System.out.println("no cargo " + e.getMessage());
+            sonidoPunto = null;
+        }
+        
+    }
+    private void reproducirSonidoPunto(){
+        if(sonidoPunto == null )
+            return;
+        sonidoPunto.stop();
+        sonidoPunto.seek(sonidoPunto.getStartTime());
+        sonidoPunto.play();
+    }
+    private void detenerSonidoPunto(){
+        if(sonidoPunto == null)
+            return;
+        sonidoPunto.stop();
     }
 
     public void mover(KeyCode tecla, GridPane tablero)throws InterruptedException{
@@ -49,63 +81,69 @@ public class Jugador {
                 nuevaColumna++;
                 break;
             default:
-                break;
-                
+                return;   
         }
-        if(mapa.getCelda(nuevaFila, nuevaColumna) != 1 && mapa.getCelda(nuevaFila, nuevaColumna) != 4){
-            rotarImagen(tecla);
-            
+        if (nuevaFila < 0 || nuevaFila >= mapa.MAPA.length || nuevaColumna < 0 || nuevaColumna >= mapa.MAPA[0].length)
+            return;
 
-            boolean hayFantasmas = (fila == RED.getFila() && columna == RED.getColumna()) || (fila ==  BLUE.getFila() && columna ==  BLUE.getColumna());
+        int celda = mapa.getCelda(nuevaFila, nuevaColumna);
+        if(celda != 0 && celda != 2 && celda != 3)
+            return;
+        rotarImagen(tecla);
+        fila = nuevaFila;
+        columna = nuevaColumna;
 
+        Node punto = buscarPuntosEnCelda(tablero, nuevaColumna, nuevaFila);
+        if(punto != null && punto.isVisible()){
+            if(celda == 0){
+                puntuacion += 10;
+                PuntosRecolectados++;
+                reproducirSonidoPunto();
+            }else if(celda ==2){
+                puntuacion += 20;
+                PuntosRecolectados++;
+                reproducirSonidoPunto();
+                AsustadoActivado = true;
+                if(RED != null ) RED.setEstaAsustado(true);
+                if(BLUE != null) BLUE.setEstaAsustado(true);
+                milisAsustado = System.currentTimeMillis();
 
-            fila = nuevaFila;
-            columna = nuevaColumna;
+            }
+            punto.setVisible(false);
+            final double pts = puntuacion;
+            Platform.runLater(()->{
+                if(puntajeLabel != null) puntajeLabel.setText(String.valueOf((int)pts));
+            });
+        }else{
+            detenerSonidoPunto();
+        }
 
-            if(!hayFantasmas){
-                Node n = obtenerNodoCeldaNode(tablero, nuevaColumna, nuevaFila);
-                if(n != null &&  n != imagen && n.isVisible()){
-                    if(mapa.getCelda(nuevaFila, nuevaColumna) == 0){
-                        puntuacion +=10;
-                        PuntosRecolectados ++;
-                    }
-                    else if(mapa.getCelda(nuevaFila, nuevaColumna) == 2){
-                        puntuacion += 20;
-                        PuntosRecolectados++;
-                        AsustadoActivado = true;
-                        RED.setEstaAsustado(AsustadoActivado);
-                        BLUE.setEstaAsustado(AsustadoActivado);
-                        milisAsustado = System.currentTimeMillis();
+        
+        tablero.setRowIndex(imagen, fila);
+        tablero.setColumnIndex(imagen, columna);
+        }
 
-                    }
-                    n.setVisible(false);
-                    final double pts = puntuacion;
-                    Platform.runLater(()->{
-                        puntajeLabel.setText( pts + " ");
-                    });
-
+        private Node buscarPuntosEnCelda(GridPane grid, int columna, int fila){
+            for (Node node : grid.getChildren()){
+                if(node == imagen) continue;
+                if(!(node instanceof ImageView) && ! (node instanceof Circle)) continue;
+                if(node instanceof ImageView){
+                    ImageView iv = (ImageView) node;
+                    if(iv.getFitWidth() >= 24) continue;
+                }
+                Integer nFila = GridPane.getRowIndex(node);
+                Integer nCol = GridPane.getColumnIndex(node);
+                if(nFila == null  ) nFila = 0;
+                if( nCol == null ) nCol = 0;
+                if (nFila == fila && nCol == columna){
+                    return node;
                 }
 
             }
-            tablero.setRowIndex(imagen , fila);
-            tablero.setColumnIndex(imagen, columna);
-
+            return null;
         }
-
-    }
-    public Node obtenerNodoCeldaNode(GridPane gridpane, int fila, int columna){
-        for (Node node : gridpane.getChildren()){
-            Integer nodeFila = GridPane.getRowIndex(node);
-            Integer nodeColumna = GridPane.getColumnIndex(node);
-            if (nodeFila == null) nodeFila = 0;
-            if (nodeColumna == null) nodeColumna = 0;
-            if(nodeFila == fila && nodeColumna == columna){
-                return node;
-            } 
             
-        }
-        return null;
-            }
+
         private void rotarImagen(KeyCode tecla){
             switch (tecla) {
                 case UP:
@@ -167,9 +205,10 @@ public class Jugador {
         public void setVidas( int vidas){
             this.vidas = vidas;
         }
-        public void setPuntajeLabel(Label labelPuntuacion){
-            this.puntajeLabel = puntajeLabel;
+        public void setPuntajeLabel(Label label){
+            this.puntajeLabel = label;
         }
+        
         public boolean isAsustadoActivado(){
             return AsustadoActivado;
         }

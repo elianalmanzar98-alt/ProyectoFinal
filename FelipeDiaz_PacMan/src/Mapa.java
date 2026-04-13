@@ -8,10 +8,15 @@ public class Mapa {
     public Mapa(int [][] m){
         this.MAPA = m;
     }
-
-    public int getCelda(int nuevaFila, int nuevaColumna){
-        return MAPA[nuevaFila][nuevaColumna];
+    public int getCelda(int fila, int columna){
+        if(fila < 0 || fila >= MAPA.length || columna < 0 || columna >= MAPA[0].length){
+            return 1;
+        }
+        return MAPA[fila][columna];
     }
-}
+
+    
+    }
+
 
 
